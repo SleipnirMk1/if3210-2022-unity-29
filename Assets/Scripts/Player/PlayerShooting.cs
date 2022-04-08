@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
  
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
- 
+    public TextMeshProUGUI damageText;
  
     float timer;
     Ray shootRay = new Ray();
@@ -32,6 +34,10 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light> ();
     }
  
+    void Start()
+    {
+        damageText.text = "Power: " + damagePerShot.ToString();
+    }
  
     void Update ()
     {

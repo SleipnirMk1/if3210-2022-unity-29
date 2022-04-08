@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
- 
+using TMPro;
  
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,12 +13,12 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
- 
+    public TextMeshProUGUI healthText;
  
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    //PlayerShooting playerShooting;
+    PlayerShooting playerShooting;
     bool isDead;
     bool damaged;
  
@@ -29,8 +29,9 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
  
-        //playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
+        healthText.text = currentHealth.ToString();
     }
  
  
@@ -62,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
  
         //Merubah tampilan dari health slider
         healthSlider.value = currentHealth;
+        healthText.text = currentHealth.ToString();
  
         //Memainkan suara ketika terkena damage
         playerAudio.Play ();
@@ -78,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
  
-        //playerShooting.DisableEffects ();
+        playerShooting.DisableEffects ();
  
         //mentrigger animasi Die
         anim.SetTrigger ("Die");
@@ -90,13 +92,13 @@ public class PlayerHealth : MonoBehaviour
         //mematikan script player movement
         playerMovement.enabled = false;
  
-        //playerShooting.enabled = false;
+        playerShooting.enabled = false;
     }
  
  
     public void RestartLevel ()
     {
         //meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene (0);
+        SceneManager.LoadScene (1);
     }
 }
