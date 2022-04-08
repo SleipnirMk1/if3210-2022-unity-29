@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    //PlayerShooting playerShooting;
+    PlayerShooting playerShooting;
     bool isDead;
     bool damaged;
  
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
  
-        //playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
     }
  
@@ -79,7 +79,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
  
-        //playerShooting.DisableEffects ();
+        playerShooting.DisableEffects ();
  
         //mentrigger animasi Die
         anim.SetTrigger ("Die");
@@ -91,13 +91,14 @@ public class PlayerHealth : MonoBehaviour
         //mematikan script player movement
         playerMovement.enabled = false;
  
-        //playerShooting.enabled = false;
+        playerShooting.enabled = false;
     }
  
  
     public void RestartLevel ()
     {
-        //meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene (0);
+//         Debug.Log("RESTART TRIGGERED");
+//         //meload ulang scene dengan index 0 pada build setting
+//         SceneManager.LoadScene (0);
     }
 }
