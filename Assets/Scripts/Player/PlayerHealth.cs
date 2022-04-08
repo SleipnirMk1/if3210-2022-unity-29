@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿Susing UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
+    // public int maxHealth = 300; 
     public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
