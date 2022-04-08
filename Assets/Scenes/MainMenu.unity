@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c75d01eec049d4f961e9f2b3ac26be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Joko
+  playerName: Aci
   score: 0
 --- !u!4 &1073831421
 Transform:
