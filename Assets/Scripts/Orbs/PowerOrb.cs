@@ -8,6 +8,6 @@ public class PowerOr : OrbObject {
 
         playerShooting = gameObjectCollectingOrb.GetComponent<PlayerShooting>();
 
-        playerShooting.damagePerShot += if (playerShooting.damagePerShot < playerShooting.maxDamage) playerdamageBonus else 0;
+        playerShooting.damagePerShot += playerShooting.damagePerShot < playerShooting.maxDamage ? playerdamageBonus : 0;
     }
 }

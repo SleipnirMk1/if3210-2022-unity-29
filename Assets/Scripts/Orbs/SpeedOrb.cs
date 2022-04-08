@@ -8,6 +8,6 @@ public class SpeedOrb : OrbObject {
 
         playerMovement = gameObjectCollectingOrb.GetComponent<PlayerMovement>();
 
-        playerMovement.speed += if ( playerMovement.speed < playerMovement.maxSpeed ) speedBonus else 0;
+        playerMovement.speed += playerMovement.speed < playerMovement.maxSpeed ? speedBonus : 0;
     }
 }

@@ -19,8 +19,9 @@ public class OrbObject : MonoBehaviour {
     }
 
     // Collision detector
-    protected void OnTriggerEnter (Collider3D collision) {
-        CollectOrb(collision.gameObject)
+    protected void OnTriggerEnter (Collider collision) {
+        CollectOrb(collision.gameObject);
+        DestroySelf();
     }
 
     // Check collected orb;
@@ -40,4 +41,4 @@ public class OrbObject : MonoBehaviour {
 
 
     
-}
+};

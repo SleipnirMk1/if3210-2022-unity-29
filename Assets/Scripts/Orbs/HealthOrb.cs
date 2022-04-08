@@ -8,6 +8,6 @@ public class HealthOrb : OrbObject {
 
         playerHealth = gameObjectCollectingOrb.GetComponent<PlayerHealth>();
 
-        playerHealth.currentHealth += if ( playerHealth.currentHealth < playerHealth.startingHealth ) healthBonus else 0;
+        playerHealth.currentHealth += playerHealth.currentHealth < playerHealth.startingHealth ? healthBonus : 0;
     }
 }
