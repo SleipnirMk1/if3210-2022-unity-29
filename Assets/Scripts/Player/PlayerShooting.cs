@@ -62,6 +62,10 @@ public class PlayerShooting : MonoBehaviour
  
     public void Shoot ()
     {
+        if (timer < timeBetweenBullets || Time.timeScale == 0)
+        {
+            return;
+        } 
 
         timer = 0f;
  
