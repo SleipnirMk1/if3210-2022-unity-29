@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
- 
+using TMPro;
  
 public class PlayerHealth : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
- 
+    public TextMeshProUGUI healthText;
  
     Animator anim;
     AudioSource playerAudio;
@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
  
         playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
+        healthText.text = currentHealth.ToString();
     }
  
  
@@ -63,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
  
         //Merubah tampilan dari health slider
         healthSlider.value = currentHealth;
+        healthText.text = currentHealth.ToString();
  
         //Memainkan suara ketika terkena damage
         playerAudio.Play ();
