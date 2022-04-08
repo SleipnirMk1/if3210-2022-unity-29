@@ -34,32 +34,37 @@ public class InputHandler : MonoBehaviour
 
     Command InputMovementHandling()
     {
-        //Check jika movement sesuai dengan key nya
-        if (Input.GetKey(KeyCode.D))
-        {
-            return new MoveCommand(playerMovement, 1, 0);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            return new MoveCommand(playerMovement, -1, 0);
-        }
-        else if (Input.GetKey(KeyCode.W))
-        {
-            return new MoveCommand(playerMovement, 0, 1);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            return new MoveCommand(playerMovement, 0, -1);
-        }
-        else if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z))
         {
             //Undo movement
             return Undo();
         }
-        else
+
+        int hMove = 0;
+        int vMove = 0;
+
+        //Check jika movement sesuai dengan key nya
+        if (Input.GetKey(KeyCode.D))
         {
-            return new MoveCommand(playerMovement, 0, 0); ;
+            hMove += 1;
         }
+        if (Input.GetKey(KeyCode.A))
+        {
+            hMove += -1;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            vMove += 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            vMove += -1;
+        }
+
+        Vector2 moveDir = new Vector2(hMove, vMove);
+        moveDir.Normalize();
+
+        return new MoveCommand(playerMovement, moveDir.x, moveDir.y); ;
     }
 
     Command Undo()
@@ -76,7 +81,7 @@ public class InputHandler : MonoBehaviour
     Command InputShootHandling()
     {
         //Jika menembak trigger shoot command
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             return new ShootCommand(playerShooting);
         }
