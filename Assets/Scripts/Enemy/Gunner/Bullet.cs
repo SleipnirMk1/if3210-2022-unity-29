@@ -20,12 +20,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         //Set player dalam range
         
-        if(other.gameObject.tag == "Player")
+        if(!other.isTrigger && other.gameObject.tag == "Player")
         {
             playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage);
