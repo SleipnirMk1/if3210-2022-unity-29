@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
@@ -8,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
+    public TextMeshProUGUI speedText;
 
     private void Awake()
     {
@@ -20,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
         //Mendapatkan komponen Rigidbody
         playerRigidbody = GetComponent<Rigidbody>();
     }
+
+    void Start()
+    {
+        speedText.text = speed.ToString();
+    }
 
     private void FixedUpdate()
     {

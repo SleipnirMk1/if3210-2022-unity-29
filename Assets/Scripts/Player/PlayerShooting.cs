@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
  
 public class PlayerShooting : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     public int maxDamage = 50;
     public float maxRange = 200f; 
  
+    public TextMeshProUGUI damageText;
  
     float timer;
     Ray shootRay = new Ray();
@@ -40,6 +43,10 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light> ();
     }
  
+    void Start()
+    {
+        damageText.text = damagePerShot.ToString();
+    }
  
     void Update ()
     {
