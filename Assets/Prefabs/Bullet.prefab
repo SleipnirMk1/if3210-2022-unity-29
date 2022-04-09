@@ -107,12 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2924114877472504912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b316ddac5d2d4884088e22aaa55a011a, type: 3}
+  m_Script: {fileID: 11500000, guid: 53738e9ea0d72274c818f87bfa2fc67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 5
-  lifetime: 2
-  speed: 10
+  lifetime: 10
+  speed: 5
 --- !u!96 &5361557826828905526
 TrailRenderer:
   serializedVersion: 2

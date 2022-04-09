@@ -135,7 +135,7 @@ public class EnemyManager : MonoBehaviour{
         GameObject enemy = currentEnemyList[currentEnemyIdx];
         enemy.SetActive(true);
         
-        Debug.Log(currentEnemyIdx);
+        // Debug.Log(currentEnemyIdx);
 
         currentEnemyIdx = (currentEnemyIdx + 1) % currentEnemyList.Length;
     }

@@ -7,8 +7,13 @@ using TMPro;
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
-    public float timeBetweenBullets = 0.15f;
+    public float timeBetweenBullets = 0.3f;
     public float range = 100f;
+
+    public int diagonalBullets = 4;
+    public int maxDiagonalBullets = 6; 
+    public int maxDiagonalRadius = 120; // 120 Derajat 
+    // Create new line of bullets for every maxDiagonalRadius/maxDiagonalBullets
 
     public int maxDamage = 50;
     public float maxRange = 200f; 
@@ -70,7 +75,7 @@ public class PlayerShooting : MonoBehaviour
     }
  
  
-    public void Shoot ()
+    public void Shoot (int angle)
     {
         if (timer < timeBetweenBullets || Time.timeScale == 0)
         {
@@ -92,6 +97,8 @@ public class PlayerShooting : MonoBehaviour
         //enable Line renderer dan set first position
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);
+        // gunLine.transform.rotation.y = angle;
+        // gunLine.SetRotation(0, transform.rotation.y+angle);
  
         //Set posisi ray shoot dan direction
         shootRay.origin = transform.position;
@@ -118,5 +125,6 @@ public class PlayerShooting : MonoBehaviour
             //set line end position ke range freom barrel
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
+        Debug.Log(gunLine.GetPosition(1));
     }
 }
