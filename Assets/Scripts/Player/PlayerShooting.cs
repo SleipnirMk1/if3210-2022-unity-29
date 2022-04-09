@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour
     public float timeBetweenBullets = 0.3f;
     public float range = 100f;
 
-    public int diagonalBullets = 1;
+    public int diagonalBullets = 4;
     public int maxDiagonalBullets = 6; 
     public int maxDiagonalRadius = 120; // 120 Derajat 
     // Create new line of bullets for every maxDiagonalRadius/maxDiagonalBullets
@@ -91,7 +91,7 @@ public class PlayerShooting : MonoBehaviour
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);
         // gunLine.transform.rotation.y = angle;
-        // gunLine.SetRotation(0, transform.rotation.y);
+        // gunLine.SetRotation(0, transform.rotation.y+angle);
  
         //Set posisi ray shoot dan direction
         shootRay.origin = transform.position;

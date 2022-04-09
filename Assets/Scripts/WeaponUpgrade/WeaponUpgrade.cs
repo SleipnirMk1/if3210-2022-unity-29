@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponUpgrade : MonoBehaviour {
 
     // private int speedUpgrade = 0.8; // 20% increase
-    // private int damageUpgrade = 10;
+    // private int diagonalBullets = 2; 
 
     // PlayerShooting playerShoting;
 
@@ -12,6 +12,6 @@ public class WeaponUpgrade : MonoBehaviour {
     // }
 
     // public void addWeaponBullet(){
-    //     playerShooting.damagePerShot += damageUpgrade;
+    //     playerShooting.damagePerShot += diagonalBullets;
     // }
 }

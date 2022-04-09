@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour{
         // foreach(GameObject enemy in currentEnemyList)
         for (int i=0; i<currentEnemyList.Length; i++)
         {
-            Debug.Log("HELLO");
+            // Debug.Log("HELLO");
             // currentEnemyList[i].GetComponent<Transform>().Translate(spawnPoints[0].position);
             currentEnemyList[i].SetActive(false);
             if (i==0)
@@ -88,7 +88,7 @@ public class EnemyManager : MonoBehaviour{
         enemy.GetComponent<Transform>().Translate(spawnPoints[0].position);
         enemy.SetActive(true);
         
-        Debug.Log(currentEnemyIdx);
+        // Debug.Log(currentEnemyIdx);
 
         currentEnemyIdx = (currentEnemyIdx + 1) % currentEnemyList.Length;
     }

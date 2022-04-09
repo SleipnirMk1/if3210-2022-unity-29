@@ -26,7 +26,7 @@ public class OrbObject : MonoBehaviour {
 
     protected virtual void Update(){
         if(Time.time - orbStartTime > orbLifetime){
-            Debug.Log("Orb Update");
+            // Debug.Log("Orb Update");
             Destroy(gameObject);
         }
     }
@@ -50,7 +50,7 @@ public class OrbObject : MonoBehaviour {
         
         state = State.Collected;
         playerObject = gameObjectCollectingOrb.gameObject; 
-        Debug.Log(playerObject.tag);
+        // Debug.Log(playerObject.tag);
         activateOrb();
         
     }
