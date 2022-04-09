@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     public float range = 100f;
 
     public int maxDamage = 50;
-    public int maxRange = 200f; 
+    public float maxRange = 200f; 
  
     public TextMeshProUGUI damageText;
  

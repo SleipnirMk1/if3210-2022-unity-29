@@ -1003,6 +1003,9 @@ MonoBehaviour:
   - {fileID: 75788044}
   - {fileID: 1093196981}
   - {fileID: 447733195}
+  isZen: 1
+  enemyWaveText: {fileID: 0}
+  waveSpawnInterval: 1
   factory: {fileID: 1424008736}
 --- !u!4 &583335488 stripped
 Transform:
@@ -1895,8 +1898,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab:
   - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
-  - {fileID: 153412, guid: 7f23cc574b3ceb24d80921cb0c2d9ddd, type: 3}
-  - {fileID: 2096797575718451630, guid: 90c79c04fe0da1948a45f07cd830c4cc, type: 3}
+  - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
+  - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
+  enemyWeight: 
 --- !u!4 &1424008737
 Transform:
   m_ObjectHideFlags: 0
