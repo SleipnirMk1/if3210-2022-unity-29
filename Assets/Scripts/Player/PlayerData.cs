@@ -32,16 +32,16 @@ public class PlayerData : MonoBehaviour
             Debug.Log("Destroyed instance");
         }
 
-        ZenScore testZen = new ZenScore();
-        testZen.name = "fulan";
-        testZen.time = 20;
-        zenScoreBoard.Add(testZen);
+        // ZenScore testZen = new ZenScore(); DEBUGG
+        // testZen.name = "fulan";
+        // testZen.time = 20;
+        // zenScoreBoard.Add(testZen);
 
-        WaveScore waveTest = new WaveScore();
-        waveTest.name = "fulan2";
-        waveTest.score = 20;
-        waveTest.maxWaves = 5;
-        waveScoreBoard.Add(waveTest);
+        // WaveScore waveTest = new WaveScore();
+        // waveTest.name = "fulan2";
+        // waveTest.score = 20;
+        // waveTest.maxWaves = 5;
+        // waveScoreBoard.Add(waveTest);
     }
 
     public void setPlayerName(string name)
@@ -51,27 +51,32 @@ public class PlayerData : MonoBehaviour
 
     public void addZenScoreBoard(ZenScore newData)
     {
-        if (zenScoreBoard.Count >= listMaxElement) {
-            foreach (var elmt in zenScoreBoard) {
-                if (elmt.time < newData.time) {
-                    zenScoreBoard.Remove(elmt);
+        int i = 0;
+        foreach (var elmt in zenScoreBoard) {
+            if (elmt.time < newData.time) {
+                zenScoreBoard.Insert(i, elmt);
+                if (zenScoreBoard.Count > listMaxElement) {
+                    zenScoreBoard.RemoveAt(zenScoreBoard.Count - 1);
                 }
+                break;
             }
+            i += 1;
         }
-
-        zenScoreBoard.Add(newData);
     }
 
     public void addWaveScoreBoard(WaveScore newData)
     {
-        if (waveScoreBoard.Count >= listMaxElement) {
-            foreach (var elmt in waveScoreBoard) {
-                if (elmt.score < newData.score) {
-                    waveScoreBoard.Remove(elmt);
+        int i = 0;
+        foreach (var elmt in waveScoreBoard) {
+            if (elmt.score < newData.score) {
+                waveScoreBoard.Insert(i, elmt);
+                if (waveScoreBoard.Count > listMaxElement) {
+                    waveScoreBoard.RemoveAt(waveScoreBoard.Count - 1);
                 }
+                break;
             }
+            i += 1;
         }
-        waveScoreBoard.Add(newData);
     }
 
     public List<ZenScore> getZenScoreBoard()
