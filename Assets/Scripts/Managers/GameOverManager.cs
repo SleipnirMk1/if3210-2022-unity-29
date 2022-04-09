@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public Text warningText;
+    public Text finalScoreText;
     public PlayerHealth playerHealth;
+    public ScoreManager scoreManager;
  
     Animator anim;
  
@@ -18,6 +20,8 @@ public class GameOverManager : MonoBehaviour
     {
         if (playerHealth.currentHealth <= 0)
         {
+            scoreManager.isScoring = false;
+            finalScoreText.text = "FINAL SCORE: " + Mathf.RoundToInt(scoreManager.score).ToString();
             anim.SetTrigger("GameOver");
         }
     }
@@ -26,12 +30,5 @@ public class GameOverManager : MonoBehaviour
     {
         warningText.text = string.Format("! {0} m",Mathf.RoundToInt(enemyDistance));
         anim.SetTrigger("Warning");
-    }
-
-    public void RestartLevel ()
-    {
-        Debug.Log("RESTART TRIGGERED");
-        //meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene (0);
     }
 }
