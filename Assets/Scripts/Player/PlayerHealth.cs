@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿Susing UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
+    // public int maxHealth = 300; 
     public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
@@ -98,7 +99,8 @@ public class PlayerHealth : MonoBehaviour
  
     public void RestartLevel ()
     {
-        //meload ulang scene dengan index 0 pada build setting
-        SceneManager.LoadScene (1);
+//         Debug.Log("RESTART TRIGGERED");
+//         //meload ulang scene dengan index 0 pada build setting
+//         SceneManager.LoadScene (0);
     }
 }
