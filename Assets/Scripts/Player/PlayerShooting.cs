@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +36,7 @@ public class PlayerShooting : MonoBehaviour
  
     void Start()
     {
-        damageText.text = "Power: " + damagePerShot.ToString();
+        damageText.text = damagePerShot.ToString();
     }
  
     void Update ()
