@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1179730484677574449}
   - component: {fileID: 7046113032737240505}
   - component: {fileID: 4813842597438707017}
-  - component: {fileID: 7035995482370623038}
+  - component: {fileID: -8976704327168394987}
   - component: {fileID: 5694257728417977624}
   m_Layer: 0
-  m_Name: SpeedOrb
+  m_Name: PowerOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e17af88287f0b448a73cc49549a64a7, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7035995482370623038
+--- !u!114 &-8976704327168394987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,14 +92,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3115360648795198604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e12aa69f7e6ba342a8ca3e99b99be4f, type: 3}
+  m_Script: {fileID: 11500000, guid: e6f631f2e148c264c9eb26fa08fa1f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbName: Speed Orb
-  orbExplanation: Speed Orb is zoom zoom
+  orbName: Power Orb
+  orbExplanation: POOOOWEEEERRRRRRR
   orbStartTime: 0
-  orbLifetime: 5
-  speedBonus: 1
+  orbLifetime: 20
+  damageBonus: 4
 --- !u!135 &5694257728417977624
 SphereCollider:
   m_ObjectHideFlags: 0
