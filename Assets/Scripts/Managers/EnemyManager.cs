@@ -5,8 +5,11 @@ public class EnemyManager : MonoBehaviour{
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
     public bool isZen = true;
+    public int zenUpgradeInterval = 10;
     public TextAsset enemyWaveText;
     public float waveSpawnInterval = 1f;
+    public WeaponUpgradeManager weaponUpgradeManager;
+    public ScoreManager scoreManager;
 
 
     // RELATED FOR WAVE LEVEL
@@ -30,17 +33,49 @@ public class EnemyManager : MonoBehaviour{
 
         ReadEnemyWaveJson(enemyWaveText);
         currentWaveIdx = 0;
+        SpawnWave();
     }
 
     void Update() 
     {
-        if (isZen) return;
-
-        int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (remainingEnemy <= 0)
+        if (isZen) 
         {
-            SpawnWave();
+            int time = Mathf.FloorToInt(scoreManager.score);
+            if (Mathf.FloorToInt(time) % zenUpgradeInterval == 0)
+            {
+                if (!weaponUpgradeManager.gameObject.activeSelf)
+                {
+                    Time.timeScale = 0;
+                    weaponUpgradeManager.gameObject.SetActive(true);
+                } else if (weaponUpgradeManager.isUpgradeChosen)
+                {
+                    scoreManager.score += 1;
+                    Time.timeScale = 1;
+                    weaponUpgradeManager.isUpgradeChosen = false;
+                    weaponUpgradeManager.gameObject.SetActive(false);
+                }
+            }
         }
+
+        else 
+        {
+            int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            if (remainingEnemy <= 0)
+            {
+                if (!weaponUpgradeManager.gameObject.activeSelf)
+                {
+                    Time.timeScale = 0;
+                    weaponUpgradeManager.gameObject.SetActive(true);
+                } else if (weaponUpgradeManager.isUpgradeChosen)
+                {
+                    Time.timeScale = 1;
+                    weaponUpgradeManager.isUpgradeChosen = false;
+                    weaponUpgradeManager.gameObject.SetActive(false);
+                    SpawnWave();
+                }
+            }
+        }
+        
     }
 
     void SpawnRandom(){
@@ -58,18 +93,31 @@ public class EnemyManager : MonoBehaviour{
         enemy.GetComponent<Transform>().Translate(spawnPoints[spawnPointIndex].position);
     }
 
-    void SpawnWave()
+    void SpawnWave() 
     {
         currentEnemyIdx =0;
-        EnemyWaveFormat currentWave = enemyWaveFormat[currentWaveIdx];
-        currentEnemyList = Factory.RandomMassFactoryMethod(currentWave.waveWeight, currentWave.enemyIdxList);
+        int waveFormatIdx = currentWaveIdx % enemyWaveFormat.Length;
+
+        int lastWaveIdx = enemyWaveFormat.Length - 1;
+        int waveWeightAddition = 
+            Mathf.FloorToInt((currentWaveIdx / enemyWaveFormat.Length)) * 
+            enemyWaveFormat[lastWaveIdx].waveWeight;
+
+        string specialCase = "";
+        if (currentWaveIdx % 3 == 2)
+        {
+            specialCase = "boss";
+        }
+
+        EnemyWaveFormat currentWave = enemyWaveFormat[waveFormatIdx];
+        currentEnemyList = Factory.RandomMassFactoryMethod(currentWave.waveWeight + waveWeightAddition, currentWave.enemyIdxList, specialCase);
 
         // foreach(GameObject enemy in currentEnemyList)
         for (int i=0; i<currentEnemyList.Length; i++)
         {
-            // Debug.Log("HELLO");
-            // currentEnemyList[i].GetComponent<Transform>().Translate(spawnPoints[0].position);
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
             currentEnemyList[i].SetActive(false);
+            currentEnemyList[i].GetComponent<Transform>().Translate(spawnPoints[spawnPointIndex].position);
             if (i==0)
             {
                 SpawnWaveEnemy();
@@ -79,13 +127,12 @@ public class EnemyManager : MonoBehaviour{
             }
         }
 
-        currentWaveIdx = (currentWaveIdx + 1) % enemyWaveFormat.Length;
+        currentWaveIdx = (currentWaveIdx + 1);
     }
 
     void SpawnWaveEnemy() 
     {
         GameObject enemy = currentEnemyList[currentEnemyIdx];
-        enemy.GetComponent<Transform>().Translate(spawnPoints[0].position);
         enemy.SetActive(true);
         
         // Debug.Log(currentEnemyIdx);

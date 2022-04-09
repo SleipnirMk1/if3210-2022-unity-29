@@ -8,13 +8,15 @@ public class EnemyFactory : MonoBehaviour, IFactory{
     public GameObject[] enemyPrefab;
     public int[] enemyWeight;
 
+    public GameObject bossPrefab;
+
     public GameObject FactoryMethod(int tag)
     {
         GameObject enemy = Instantiate(enemyPrefab[tag]);
         return enemy;
     }
 
-    public GameObject[] RandomMassFactoryMethod(int value, int[] tag)
+    public GameObject[] RandomMassFactoryMethod(int value, int[] tag, string specialCase)
     {
         List<GameObject> enemyList = new List<GameObject>();
 
@@ -25,6 +27,12 @@ public class EnemyFactory : MonoBehaviour, IFactory{
             enemyList.Add(enemy);
 
             value -= enemyWeight[idx];
+        }
+
+        if (specialCase == "boss")
+        {
+            GameObject boss = Instantiate(bossPrefab);
+            enemyList.Add(boss);
         }
 
         return enemyList.ToArray();

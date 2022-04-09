@@ -4,9 +4,10 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static float score;
+    public float score;
 
-    public static bool isZen = true;
+    public bool isZen = true;
+    public bool isScoring = true;
 
 
     Text text;
@@ -15,7 +16,7 @@ public class ScoreManager : MonoBehaviour
     void Awake ()
     {
         text = GetComponent <Text> ();
-        score = 0;
+        score = 1;
         
     }
 
@@ -24,13 +25,13 @@ public class ScoreManager : MonoBehaviour
     {
         text.text = "Score: " + ((int)score);
 
-        if (isZen)
+        if (isZen && isScoring)
         {
             score += Time.deltaTime;
         }
     }
 
-    public static void AddScore (int delta) 
+    public void AddScore (int delta) 
     {
         if (!isZen)
         {
