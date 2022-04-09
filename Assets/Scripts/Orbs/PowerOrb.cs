@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class PowerOr : OrbObject {
+public class PowerOrb : OrbObject {
     public int damageBonus = 4; 
+    private PlayerShooting playerShooting;
 
-    protected override void CollectOrb(){
-        base.CollectOrb();
-
-        playerShooting = gameObjectCollectingOrb.GetComponent<PlayerShooting>();
-
-        playerShooting.damagePerShot += playerShooting.damagePerShot < playerShooting.maxDamage ? playerdamageBonus : 0;
+    protected override void activateOrb(){
+        base.activateOrb();
+        playerShooting = playerObject.GetComponent<PlayerShooting>();
+        playerShooting.damagePerShot += playerShooting.damagePerShot < playerShooting.maxDamage ? damageBonus : 0;
     }
 }

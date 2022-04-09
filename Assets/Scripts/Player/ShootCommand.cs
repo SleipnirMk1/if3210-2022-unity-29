@@ -14,8 +14,13 @@ public class ShootCommand : Command
 
     public override void Execute()
     {
+        int angle = playerShooting.maxDiagonalRadius/playerShooting.diagonalBullets;
         //Player menembak
-        playerShooting.Shoot();
+        for( int i = 0; i < playerShooting.diagonalBullets + 1; i++) {
+                playerShooting.Shoot(angle*i);
+        }
+        
+        
     }
 
     public override void UnExecute()

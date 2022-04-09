@@ -5,6 +5,9 @@ public class OrbObject : MonoBehaviour {
     public string orbName;
     public string orbExplanation;
 
+    // public PlayerMovement playerMovement;
+    protected GameObject playerObject;
+
     protected enum State{ 
         Standby,
         Collected,
@@ -26,11 +29,22 @@ public class OrbObject : MonoBehaviour {
 
     // Check collected orb;
     protected virtual void CollectOrb(GameObject gameObjectCollectingOrb){
-        if(gameObjectCollectingOrb.tag != "Player"){ return; }
+        if( gameObjectCollectingOrb.tag != "Player" ){ 
+            return; 
+        }
 
-        if(state == State.Standby || state = State.Expired ) { return; }
+        if( state == State.Standby || state == State.Expired ) { 
+            return; 
+        }
 
         state = State.Collected;
+        playerObject = gameObjectCollectingOrb; 
+        activateOrb();
+        
+    }
+
+    protected virtual void activateOrb(){
+        // DestroySelf();
     }
 
 

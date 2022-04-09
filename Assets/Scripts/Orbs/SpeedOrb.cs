@@ -1,13 +1,12 @@
 using UnityEngine;
 
 public class SpeedOrb : OrbObject {
-    public int speedBonus = 1f;
+    public float speedBonus = 1f;
+    private PlayerMovement playerMovement;
 
-    protected override void CollectOrb(){
-        base.CollectOrb();
-
-        playerMovement = gameObjectCollectingOrb.GetComponent<PlayerMovement>();
-
+    protected override void activateOrb(){
+        base.activateOrb();
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerMovement.speed += playerMovement.speed < playerMovement.maxSpeed ? speedBonus : 0;
     }
 }

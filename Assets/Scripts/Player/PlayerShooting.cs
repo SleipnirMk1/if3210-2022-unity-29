@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
-    public float timeBetweenBullets = 0.15f;
+    public float timeBetweenBullets = 0.3f;
     public float range = 100f;
 
     public int diagonalBullets = 0;
     public int maxDiagonalBullets = 6; 
-    private int maxDiagonalRadius = 120; // 120 Derajat 
+    public int maxDiagonalRadius = 120; // 120 Derajat 
     // Create new line of bullets for every maxDiagonalRadius/maxDiagonalBullets
 
     public int maxDamage = 50;
-    public int maxRange = 200f; 
+    public float maxRange = 200f; 
  
  
     float timer;
@@ -68,7 +68,7 @@ public class PlayerShooting : MonoBehaviour
     }
  
  
-    public void Shoot ()
+    public void Shoot (int angle)
     {
         if (timer < timeBetweenBullets || Time.timeScale == 0)
         {
@@ -90,6 +90,8 @@ public class PlayerShooting : MonoBehaviour
         //enable Line renderer dan set first position
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);
+        gunLine.transform.rotation.y = angle;
+        // gunLine.SetRotation(0, transform.rotation.y);
  
         //Set posisi ray shoot dan direction
         shootRay.origin = transform.position;
