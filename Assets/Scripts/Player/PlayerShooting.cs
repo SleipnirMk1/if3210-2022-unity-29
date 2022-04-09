@@ -40,7 +40,7 @@ public class PlayerShooting : MonoBehaviour
  
     void Start()
     {
-        damageText.text = "Power: " + damagePerShot.ToString();
+        damageText.text = damagePerShot.ToString();
     }
  
     void Update ()
