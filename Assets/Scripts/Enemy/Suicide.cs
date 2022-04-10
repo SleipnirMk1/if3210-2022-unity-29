@@ -8,6 +8,9 @@ public class Suicide : MonoBehaviour
     GameObject player;
 
     public float timeToDie = 0.001f;
+    public GameObject explosionEffect;
+
+    private GameObject explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +24,13 @@ public class Suicide : MonoBehaviour
         //Set player dalam range
         if(other.gameObject == player && other.isTrigger == false)
         {
+            explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
             StartCoroutine("WaitCoroutine");
-            
         }
     }
 
     IEnumerator WaitCoroutine()
     {
-        //yield on a new YieldInstruction that waits for seconds.
         yield return new WaitForSeconds(timeToDie);
         enemyHealth.TakeDamage(enemyHealth.currentHealth, transform.position);
     }
