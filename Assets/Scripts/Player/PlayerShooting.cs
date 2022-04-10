@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
@@ -11,9 +11,9 @@ public class PlayerShooting : MonoBehaviour
     public float timeBetweenBullets = 0.3f;
     public float range = 100f;
 
-    public int diagonalBullets = 2;
-    public int maxDiagonalBullets = 2; 
-    public int maxDiagonalRadius = 120; // 120 Derajat 
+    private int bulletLines = 1;
+    public int maxBulletLines = 7; 
+    public int maxBulletLinesRadius = 120; // 120 Derajat 
     // Create new line of bullets for every maxDiagonalRadius/maxDiagonalBullets
 
     public int maxDamage = 50;
@@ -82,9 +82,15 @@ public class PlayerShooting : MonoBehaviour
             gunNoseScript.DisableEffects();
         }
     }
+
+    public void addBulletLines(int extra){
+        if(bulletLines + extra > maxBulletLines) return; 
+        bulletLines += extra; 
+        this.RefreshGunShotRayList();
+    }
  
  
-    public void Shoot (int angle)
+    public void Shoot ()
     {
         if (timer < timeBetweenBullets || Time.timeScale == 0)
         {
@@ -159,7 +165,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void RefreshGunShotRayList() 
     {
-        int diff = gunShotRayList.Count - diagonalBullets;
+        int diff = gunShotRayList.Count - bulletLines;
         if (diff < 0)
         {
             for (int i=0; i< -diff; i++)
@@ -179,13 +185,13 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
-        int anglePerRay = maxDiagonalRadius/(gunShotRayList.Count);
+        int anglePerRay = maxBulletLinesRadius/(gunShotRayList.Count);
 
         for (int i=0; i<gunShotRayList.Count; i++)
         {
             GameObject gunShotRay = gunShotRayList[i];
             gunShotRay.transform.rotation = new Quaternion();
-            float angle = (anglePerRay*i) + anglePerRay/2 - maxDiagonalRadius/2;
+            float angle = (anglePerRay*i) + anglePerRay/2 - maxBulletLinesRadius/2;
             gunShotRay.transform.Rotate(0, angle, 0);
         }
     }
