@@ -2237,9 +2237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
-  - {fileID: 2096797575718451630, guid: 90c79c04fe0da1948a45f07cd830c4cc, type: 3}
-  - {fileID: 5611789288405819174, guid: 48d719ac353c935439f9df35ddcedf9d, type: 3}
+  - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
+  - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
+  - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
   enemyWeight: 
   bossPrefab: {fileID: 153412, guid: 7f23cc574b3ceb24d80921cb0c2d9ddd, type: 3}
 --- !u!4 &1424008737
