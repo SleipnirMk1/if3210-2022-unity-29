@@ -60,19 +60,27 @@ public class EnemyManager : MonoBehaviour{
         else 
         {
             int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            if (remainingEnemy <= 0)
+            if ((remainingEnemy <= 0))
             {
-                if (!weaponUpgradeManager.gameObject.activeSelf)
+                if (((currentWaveIdx % 3) == 0) && (currentWaveIdx != 0) )
                 {
-                    Time.timeScale = 0;
-                    weaponUpgradeManager.gameObject.SetActive(true);
-                } else if (weaponUpgradeManager.isUpgradeChosen)
+                    if (!weaponUpgradeManager.gameObject.activeSelf)
+                    {
+                        Time.timeScale = 0;
+                        weaponUpgradeManager.gameObject.SetActive(true);
+                    } else if (weaponUpgradeManager.isUpgradeChosen)
+                    {
+                        Time.timeScale = 1;
+                        weaponUpgradeManager.isUpgradeChosen = false;
+                        weaponUpgradeManager.gameObject.SetActive(false);
+                        SpawnWave();
+                    }
+                } else
                 {
-                    Time.timeScale = 1;
-                    weaponUpgradeManager.isUpgradeChosen = false;
-                    weaponUpgradeManager.gameObject.SetActive(false);
                     SpawnWave();
                 }
+
+                
             }
         }
         
