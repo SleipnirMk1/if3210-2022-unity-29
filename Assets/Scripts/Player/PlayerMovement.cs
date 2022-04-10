@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
-    public float maxSpeed = 20f; 
+    public float maxSpeed = 10f; 
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;
