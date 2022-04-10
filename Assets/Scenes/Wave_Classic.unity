@@ -2652,6 +2652,7 @@ MonoBehaviour:
   enemyManager: {fileID: 541746449}
   gameModeText: {fileID: 852069229}
   waveTimeText: {fileID: 852069230}
+  maxWave: 12
 --- !u!95 &2129584432
 Animator:
   serializedVersion: 3

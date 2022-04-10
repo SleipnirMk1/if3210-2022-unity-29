@@ -69,10 +69,7 @@ public class EnemyManager : MonoBehaviour{
             int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
             if ((remainingEnemy <= 0))
             {
-                if ((currentWaveIdx == maxWave) && (playerHealth.currentHealth > 0))
-                {
-                    playerHealth.TakeDamage(1000);
-                } else if (((currentWaveIdx % 3) == 0) && (currentWaveIdx != 0) )
+                if (((currentWaveIdx % 3) == 0) && (currentWaveIdx != 0) )
                 {
                     if (!weaponUpgradeManager.gameObject.activeSelf)
                     {
