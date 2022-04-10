@@ -496,7 +496,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b75a561f374f89247a62336b50288d40, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5598,12 +5597,14 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100
-  diagonalBullets: 4
+  diagonalBullets: 5
   maxDiagonalBullets: 6
   maxDiagonalRadius: 120
   maxDamage: 50
   maxRange: 200
   damageText: {fileID: 0}
+  gunShotRay: {fileID: 1961537932625766782, guid: 6b6cc38b1c398d54f91edf26184085be,
+    type: 3}
 --- !u!1 &600699526612395878
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
  
@@ -10,8 +11,8 @@ public class PlayerShooting : MonoBehaviour
     public float timeBetweenBullets = 0.3f;
     public float range = 100f;
 
-    public int diagonalBullets = 4;
-    public int maxDiagonalBullets = 6; 
+    public int diagonalBullets = 2;
+    public int maxDiagonalBullets = 2; 
     public int maxDiagonalRadius = 120; // 120 Derajat 
     // Create new line of bullets for every maxDiagonalRadius/maxDiagonalBullets
 
@@ -19,6 +20,7 @@ public class PlayerShooting : MonoBehaviour
     public float maxRange = 200f; 
  
     public TextMeshProUGUI damageText;
+    public GameObject gunShotRay;
  
     float timer;
     Ray shootRay = new Ray();
@@ -29,7 +31,7 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
- 
+    List<GameObject> gunShotRayList = new List<GameObject>();
  
     void Awake ()
     {
@@ -45,7 +47,8 @@ public class PlayerShooting : MonoBehaviour
  
     void Start()
     {
-        damageText.text = damagePerShot.ToString();
+        if (damageText != null) damageText.text = damagePerShot.ToString();
+        RefreshGunShotRayList();
     }
  
     void Update ()
@@ -72,6 +75,12 @@ public class PlayerShooting : MonoBehaviour
  
         //disable light
         gunLight.enabled = false;
+
+        for (int i=0; i<gunShotRayList.Count; i++) 
+        {
+            GunShotRay gunNoseScript = gunShotRayList[i].GetComponent<GunShotRay>();
+            gunNoseScript.DisableEffects();
+        }
     }
  
  
@@ -82,9 +91,9 @@ public class PlayerShooting : MonoBehaviour
             return;
         } 
 
-        timer = 0f;
- 
-        //Play audio
+        timer = 0f;
+
+        //Play audio
         gunAudio.Play ();
  
         //enable Light
@@ -93,6 +102,26 @@ public class PlayerShooting : MonoBehaviour
         //Play gun particle
         gunParticles.Stop ();
         gunParticles.Play ();
+
+        //-------------------------------------//
+        // TEST: THIS IS FOR DIAGONAL SHOOTING //
+        //-------------------------------------//
+
+        for (int i=0; i<gunShotRayList.Count; i++) 
+        {
+            GunShotRay gunNoseScript = gunShotRayList[i].GetComponent<GunShotRay>();
+            gunNoseScript.damagePerShot = damagePerShot;
+            gunNoseScript.shootableMask = shootableMask;
+            gunNoseScript.range = range;
+
+            gunNoseScript.Shoot();
+        }
+
+        return;
+
+        //----------//
+        // END TEST //
+        //----------//        
  
         //enable Line renderer dan set first position
         gunLine.enabled = true;
@@ -127,4 +156,37 @@ public class PlayerShooting : MonoBehaviour
         }
         Debug.Log(gunLine.GetPosition(1));
     }
+
+    public void RefreshGunShotRayList() 
+    {
+        int diff = gunShotRayList.Count - diagonalBullets;
+        if (diff < 0)
+        {
+            for (int i=0; i< -diff; i++)
+            {
+                GameObject gunNose = Instantiate(gunShotRay);
+                gunNose.transform.Translate(gameObject.transform.position);
+                gunNose.transform.parent = gameObject.transform;
+                gunShotRayList.Add(gunNose);
+            }
+        } else if (diff > 0)
+        {
+            for (int i=0; i< diff; i++)
+            {
+                GameObject gunNose = gunShotRayList[i];
+                gunShotRayList.RemoveAt(i);
+                Destroy(gunNose);
+            }
+        }
+
+        int anglePerRay = 120/(gunShotRayList.Count);
+
+        for (int i=0; i<gunShotRayList.Count; i++)
+        {
+            GameObject gunShotRay = gunShotRayList[i];
+            gunShotRay.transform.rotation = new Quaternion();
+            float angle = (anglePerRay*(i+1)) - 60;
+            gunShotRay.transform.Rotate(0, angle, 0);
+        }
+    }
 }
