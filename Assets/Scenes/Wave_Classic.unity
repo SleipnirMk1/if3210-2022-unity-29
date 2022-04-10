@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45061505, g: 0.498609, b: 0.56437516, a: 1}
+  m_IndirectSpecularColor: {r: 0.45061463, g: 0.4986083, b: 0.5643749, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2148,11 +2148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
+  - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
   - {fileID: 100000, guid: 8bb7d7d2d3e161a44908326087f54df0, type: 3}
-  - {fileID: 5611789288405819174, guid: 48d719ac353c935439f9df35ddcedf9d, type: 3}
   - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
   - {fileID: 2096797575718451630, guid: 90c79c04fe0da1948a45f07cd830c4cc, type: 3}
-  enemyWeight: 02000000030000000400000005000000
+  - {fileID: 5611789288405819174, guid: 48d719ac353c935439f9df35ddcedf9d, type: 3}
+  enemyWeight: 0100000001000000020000000300000005000000
   bossPrefab: {fileID: 153412, guid: 7f23cc574b3ceb24d80921cb0c2d9ddd, type: 3}
 --- !u!4 &1424008737
 Transform:
