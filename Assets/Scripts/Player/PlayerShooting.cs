@@ -179,13 +179,13 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
-        int anglePerRay = 120/(gunShotRayList.Count);
+        int anglePerRay = maxDiagonalRadius/(gunShotRayList.Count);
 
         for (int i=0; i<gunShotRayList.Count; i++)
         {
             GameObject gunShotRay = gunShotRayList[i];
             gunShotRay.transform.rotation = new Quaternion();
-            float angle = (anglePerRay*(i+1)) - 60;
+            float angle = (anglePerRay*i) + anglePerRay/2 - maxDiagonalRadius/2;
             gunShotRay.transform.Rotate(0, angle, 0);
         }
     }
