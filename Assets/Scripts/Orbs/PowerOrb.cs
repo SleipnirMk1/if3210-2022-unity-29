@@ -6,7 +6,8 @@ public class PowerOrb : OrbObject {
 
     protected override void activateOrb(){
         base.activateOrb();
-        playerShooting = playerObject.GetComponent<PlayerShooting>();
+        playerShooting = playerObject.GetComponentInChildren<PlayerShooting>();
         playerShooting.damagePerShot += playerShooting.damagePerShot < playerShooting.maxDamage ? damageBonus : 0;
+        playerShooting.damageText.text = playerShooting.damagePerShot.ToString();
     }
 }

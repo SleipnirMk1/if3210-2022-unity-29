@@ -8,7 +8,7 @@ public class HealthOrb : OrbObject {
         base.activateOrb();
         playerHealth = playerObject.GetComponent<PlayerHealth>();
         playerHealth.currentHealth += playerHealth.currentHealth <= playerHealth.startingHealth ? healthBonus : 0;
-        // Debug.Log(playerHealth.currentHealth);
         playerHealth.healthSlider.value = playerHealth.currentHealth;
+        playerHealth.healthText.text = playerHealth.currentHealth.ToString();
     }
 }
