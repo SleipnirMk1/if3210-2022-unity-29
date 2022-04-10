@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyManager : MonoBehaviour{
     public PlayerHealth playerHealth;
@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour{
     public float waveSpawnInterval = 1f;
     public WeaponUpgradeManager weaponUpgradeManager;
     public ScoreManager scoreManager;
+    public int maxWave = 3;
 
     // Zen Incremental Difficulty;
     public int zenLevel = 1; 
@@ -66,19 +67,27 @@ public class EnemyManager : MonoBehaviour{
         else 
         {
             int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            if (remainingEnemy <= 0)
+            if ((remainingEnemy <= 0))
             {
-                if (!weaponUpgradeManager.gameObject.activeSelf)
+                if (((currentWaveIdx % 3) == 0) && (currentWaveIdx != 0) )
                 {
-                    Time.timeScale = 0;
-                    weaponUpgradeManager.gameObject.SetActive(true);
-                } else if (weaponUpgradeManager.isUpgradeChosen)
+                    if (!weaponUpgradeManager.gameObject.activeSelf)
+                    {
+                        Time.timeScale = 0;
+                        weaponUpgradeManager.gameObject.SetActive(true);
+                    } else if (weaponUpgradeManager.isUpgradeChosen)
+                    {
+                        Time.timeScale = 1;
+                        weaponUpgradeManager.isUpgradeChosen = false;
+                        weaponUpgradeManager.gameObject.SetActive(false);
+                        SpawnWave();
+                    }
+                } else
                 {
-                    Time.timeScale = 1;
-                    weaponUpgradeManager.isUpgradeChosen = false;
-                    weaponUpgradeManager.gameObject.SetActive(false);
                     SpawnWave();
                 }
+
+                
             }
         }
         
