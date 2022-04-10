@@ -2,7 +2,7 @@
 
 public class EnemyManager : MonoBehaviour{
     public PlayerHealth playerHealth;
-    public float spawnTime = 3f;
+    public float spawnTime = 20f;
     public Transform[] spawnPoints;
     public bool isZen = true;
     public int zenUpgradeInterval = 30;
@@ -11,6 +11,10 @@ public class EnemyManager : MonoBehaviour{
     public WeaponUpgradeManager weaponUpgradeManager;
     public ScoreManager scoreManager;
 
+    // Zen Incremental Difficulty;
+    public int zenLevel = 1; 
+    public int difficultyLevel = 2;
+    public int totalEnemies;
 
     // RELATED FOR WAVE LEVEL
     public int currentWaveIdx;
@@ -27,7 +31,7 @@ public class EnemyManager : MonoBehaviour{
         //Mengeksekusi fungs Spawn setiap beberapa detik sesui dengan nilai spawnTime
         if (isZen)
         {
-            InvokeRepeating("SpawnRandom", spawnTime, spawnTime);
+            InvokeRepeating("SpawnRandom", 1, spawnTime);
             return;
         }
 
@@ -53,7 +57,9 @@ public class EnemyManager : MonoBehaviour{
                     Time.timeScale = 1;
                     weaponUpgradeManager.isUpgradeChosen = false;
                     weaponUpgradeManager.gameObject.SetActive(false);
+                    zenLevel += 1;
                 }
+                
             }
         }
 
@@ -79,18 +85,43 @@ public class EnemyManager : MonoBehaviour{
     }
 
     void SpawnRandom(){
+
+        int remainingEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //Jika player telah mati maka tidak membuat enemy baru
         if (playerHealth.currentHealth <= 0f){
            return;
         }
 
-        //Mendapatkan nilai random
-       int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-       int spawnEnemy = Random.Range(0, 3);
+        if(remainingEnemy >= 70){
+            return;
+        }
 
-        //Memduplikasi enemy
-        GameObject enemy = Factory.FactoryMethod(spawnEnemy);
-        enemy.GetComponent<Transform>().Translate(spawnPoints[spawnPointIndex].position);
+    //     //Mendapatkan nilai random
+    //    int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+    //    int spawnEnemy = Random.Range(0, 3);
+
+    //     //Memduplikasi enemy
+    //     GameObject enemy = Factory.FactoryMethod(spawnEnemy);
+    //     enemy.GetComponent<Transform>().Translate(spawnPoints[spawnPointIndex].position);
+
+        int[] enemyTags = new int[]{0,1,2,3, 4};
+        string specialCase = "";
+        if (zenLevel % 5 == 0)
+        {
+            specialCase = "boss";
+        }
+
+        currentEnemyList = Factory.RandomMassFactoryMethod(zenLevel*difficultyLevel, enemyTags, specialCase);
+        for (int i=0; i<currentEnemyList.Length; i++)
+        {
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            currentEnemyList[i].SetActive(true);
+            currentEnemyList[i].GetComponent<Transform>().Translate(spawnPoints[spawnPointIndex].position);
+            if (i==0)
+            {
+                SpawnWaveEnemy();
+            }
+        }
     }
 
     void SpawnWave() 
