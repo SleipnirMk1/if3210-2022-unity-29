@@ -16,13 +16,8 @@ public class ScoreManager : MonoBehaviour
     void Awake ()
     {
         text = GetComponent <Text> ();
-        if (isZen)
-        {
-            score = 1;
-        } else 
-        {
-            score = 0;
-        }        
+        score = 1;
+        
     }
 
 
