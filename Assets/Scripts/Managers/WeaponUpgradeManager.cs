@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class WeaponUpgradeManager : MonoBehaviour
 {
     public bool isUpgradeChosen = false;
-    private float speedUpgrade = 0.95f; // 5% increase
+    private float speedUpgrade = 0.98f; // 2% increase
     private int diagonalBullets = 2; 
 
     PlayerShooting playerShooting;
