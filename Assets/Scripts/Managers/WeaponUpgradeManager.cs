@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class WeaponUpgradeManager : MonoBehaviour
 {
     public bool isUpgradeChosen = false;
-    private float speedUpgrade = 0.8f; // 20% increase
+    private float speedUpgrade = 0.95f; // 5% increase
     private int diagonalBullets = 2; 
 
     PlayerShooting playerShooting;
@@ -25,7 +25,7 @@ public class WeaponUpgradeManager : MonoBehaviour
     }
 
     public void addWeaponBullet(){
-        playerShooting.damagePerShot += diagonalBullets;
+        playerShooting.addBulletLines(diagonalBullets);
         UpgradeWeapon();
     }
 
