@@ -554,56 +554,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156624913}
   m_CullTransparentMesh: 1
---- !u!1 &201118248
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 201118250}
-  - component: {fileID: 201118249}
-  m_Layer: 0
-  m_Name: SpawnOrb
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &201118249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201118248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ddd23599d2bea34a83f7cb1e048bc14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbsPrefab:
-  - {fileID: 3115360648795198604, guid: bd21ccd82a2216047b02a641512ef2af, type: 3}
-  - {fileID: 3115360648795198604, guid: 4630f7e30f1088f41b494d866a047739, type: 3}
-  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
-  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
-  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
-  spawnTime: 1
---- !u!4 &201118250
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201118248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5504036, y: -4.319106, z: 1.5693903}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355595743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1526226139}
-  spawnTime: 20
+  spawnTime: 1
   spawnPoints:
   - {fileID: 75788044}
   - {fileID: 1093196981}
@@ -1246,9 +1196,6 @@ MonoBehaviour:
   waveSpawnInterval: 1
   weaponUpgradeManager: {fileID: 7017682}
   scoreManager: {fileID: 124313725}
-  zenLevel: 1
-  difficultyLevel: 5
-  totalEnemies: 0
   currentWaveIdx: 0
   factory: {fileID: 1424008736}
 --- !u!4 &583335488 stripped
@@ -1488,6 +1435,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785574275}
   m_CullTransparentMesh: 0
+--- !u!1 &808185217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808185218}
+  - component: {fileID: 808185219}
+  m_Layer: 0
+  m_Name: SpawnOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808185218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808185217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5504036, y: -4.319106, z: 1.5693903}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808185219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808185217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddd23599d2bea34a83f7cb1e048bc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbsPrefab:
+  - {fileID: 3115360648795198604, guid: bd21ccd82a2216047b02a641512ef2af, type: 3}
+  - {fileID: 3115360648795198604, guid: 4630f7e30f1088f41b494d866a047739, type: 3}
+  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
+  spawnTime: 3
 --- !u!1001 &826478852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2330,14 +2325,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 8bb7d7d2d3e161a44908326087f54df0, type: 3}
   - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
   - {fileID: 5611789288405819174, guid: 48d719ac353c935439f9df35ddcedf9d, type: 3}
-<<<<<<< HEAD
-  - {fileID: 100000, guid: 8bb7d7d2d3e161a44908326087f54df0, type: 3}
-  - {fileID: 3485441026344456472, guid: e48cc12f2423f2c49931e56a356b0c22, type: 3}
-  - {fileID: 2096797575718451630, guid: 90c79c04fe0da1948a45f07cd830c4cc, type: 3}
-  enemyWeight: 0100000001000000010000000300000002000000
-=======
   enemyWeight: 
->>>>>>> e2b1c661ff209ccbfd4c75f8f841a84867cb5046
   bossPrefab: {fileID: 153412, guid: 7f23cc574b3ceb24d80921cb0c2d9ddd, type: 3}
 --- !u!4 &1424008737
 Transform:
