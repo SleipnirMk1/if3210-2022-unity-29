@@ -145,4 +145,4 @@ MonoBehaviour:
   damagePerShot: 10
   range: 100
   shootableMask: 0
-  gunLine: {fileID: 0}
+  gunLine: {fileID: 8636342579830036795}

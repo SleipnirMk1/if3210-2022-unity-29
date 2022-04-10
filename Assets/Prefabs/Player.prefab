@@ -5597,9 +5597,8 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100
-  diagonalBullets: 5
-  maxDiagonalBullets: 6
-  maxDiagonalRadius: 120
+  maxBulletLines: 7
+  maxBulletLinesRadius: 120
   maxDamage: 50
   maxRange: 200
   damageText: {fileID: 0}
