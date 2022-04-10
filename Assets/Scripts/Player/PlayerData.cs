@@ -37,6 +37,11 @@ public class PlayerData : MonoBehaviour
         // testZen.time = 20;
         // addZenScoreBoard(testZen);
 
+        // testZen = new ZenScore();
+        // testZen.name = "fulan2";
+        // testZen.time = 19;
+        // addZenScoreBoard(testZen);
+
         // WaveScore waveTest = new WaveScore();
         // waveTest.name = "fulan2";
         // waveTest.score = 20;
@@ -61,16 +66,22 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
+            bool isInserted = false;
             int i = 0;
             foreach (var elmt in zenScoreBoard) {
                 if (elmt.time < newData.time) {
                     zenScoreBoard.Insert(i, newData);
+                    isInserted = true;
                     if (zenScoreBoard.Count > listMaxElement) {
                         zenScoreBoard.RemoveAt(zenScoreBoard.Count - 1);
                     }
                     break;
                 }
                 i += 1;
+            }
+            if (!isInserted && zenScoreBoard.Count <= listMaxElement)
+            {
+                zenScoreBoard.Add(newData);
             }
         }
     }
@@ -82,16 +93,22 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
+            bool isInserted = false;
             int i = 0;
             foreach (var elmt in waveScoreBoard) {
                 if (elmt.score < newData.score) {
                     waveScoreBoard.Insert(i, newData);
+                    isInserted = true;
                     if (waveScoreBoard.Count > listMaxElement) {
                         waveScoreBoard.RemoveAt(waveScoreBoard.Count - 1);
                     }
                     break;
                 }
                 i += 1;
+            }
+            if (!isInserted && waveScoreBoard.Count <= listMaxElement)
+            {
+                waveScoreBoard.Add(newData);
             }
         }
     }
