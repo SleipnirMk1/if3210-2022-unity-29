@@ -2,91 +2,69 @@
 
 Tugas Besar Unity, IF3210 Pengembangan Aplikasi pada Platform Khusus
 
-## Getting started
+## Deskripsi Aplikasi
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Dalam tugas besar kali ini, mahasiswa diminta untuk membangun sebuah game pada platform Unity. Game tersebut bernama Survival Shooter: Extended yang merupakan game ekstensi Survival Shooter dari Unity Learn.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Cara kerja
 
-## Add your files
+1. Atribut
+Pemain memiliki atribut power, speed, dan health. Power terpaut pada script shooting, speed pada movement, dan health pada health.
+Nilai ketiga atribut tersebut ditampilkan di pojok kiri bawah layar dengan simbol yang sesuai.
+2. Orbs
+Ketiga atribut diatas dapat ditingkatkan dengan mengambil orb yang ter-spawn secara acak dalam peta. Orb hijau untuk health, merah untuk power, dan kuning untuk speed.
+3. Mobs
+Terdapat 3 mob tambahan:
+- Skeleton: Bergerak dengan lambat (hingga terlihat tidak bergerak) dan menembakkan proyektil.
+- Bomber: Bergerak dengan cepat untuk meledakkan dirinya, jarak ledakan terlihat dengan linkaran merah dibawahnya.
+- Boss: Hellephant yang bermutasi menjadi lebih besar, cepat, dan kuat.
+4. Game Modes
+Terdapat 2 game modes:
+- Zen mode: Bertahan selama mungkin, musuh di-spawn secara acak, skor didapatkan dari bertahan lebih lama.
+- Wave mode: Bertahan melawan musuh yang datang secara periodik. Setiap wave akan semakin sulit dengan setiap 3 wave memunculkan boss.
+5. Weapon Upgrades
+Terdapat 2 weapon upgrades:
+- Diagonal weapon menambahkan tembakan pada kanan dan kiri, batasnya adalah 5 tembakan sekaligus.
+- Faster weapon mempercepat rate of fire senjata.
+Pada zen mode, upgrade didapatkan setelah bertahan selama beberapa waktu, sedangkan pada wave mode didapatkan setiap akhir wave.
+6. Scoreboard
+Scoreboard menampilkan nama dan skor pemain terurut dari yang terbaik untuk kedua game modes. Scoreboard dapat diakses di main menu.
+7. Main Menu
+Menjadi tampilan pertama. Terdapat pilihan untuk keluar game (hanya bekerja setelah game nya di-build), melihat scoreboard, dan main. Jika memilih main, ditampilkan 2 pilihan mode (dan 1 pilihan rahasia). Setelah memilih mode, pemain memasukkan nama sebelum mulai bermain.
+8. Bonus
+- Mode first person shooter di peta rahasia dapat diakses melalui pilihan rahasia pada tampilan pilihan mode.
+- Beberapa kebijakan desain:
+. Animasi transisi scene
+. Tampilan main menu
+. Balance dari game mode
+. Tampilan musuh dan serangannya (untuk mob baru)
+. Pemberian lampu untuk player
+. Tampilan UI
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Library
 
-```
-cd existing_repo
-git remote add origin https://gitlab.informatika.org/IlyasaS/if3210-2022-unity-29.git
-git branch -M main
-git push -uf origin main
-```
+- TextMeshPro: Supaya beberapa teks ter-render dengan lebih baik
+- Unity Particle Pack: Memberikan efek ledakan pada musuh bomber
+- 2D Weapon Pack: Untuk sprite senjata pada UI
 
-## Integrate with your tools
+## Screenshots
 
-- [ ] [Set up project integrations](https://gitlab.informatika.org/IlyasaS/if3210-2022-unity-29/-/settings/integrations)
+- 
 
-## Collaborate with your team
+## Pembagian kerja
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+1. Mahameru Ds
+- Orbs mechanic
+- Faster weapon
+2. Ilyasa Salafi Putra Jamal
+- Main Menu
+- Scoreboard
+- Mobs
+- Tampilan atribut
+- First person mode
+- New secret map
+3. Imam Nurul Hukmi
+- Game modes
+- Game over screen
+- Diagonal weapon
 
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
