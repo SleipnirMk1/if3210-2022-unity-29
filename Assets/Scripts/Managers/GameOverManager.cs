@@ -8,6 +8,10 @@ public class GameOverManager : MonoBehaviour
     public Text finalScoreText;
     public PlayerHealth playerHealth;
     public ScoreManager scoreManager;
+    public EnemyManager enemyManager;
+
+    public Text gameModeText;
+    public Text waveTimeText;
  
     Animator anim;
  
@@ -22,6 +26,18 @@ public class GameOverManager : MonoBehaviour
         {
             scoreManager.isScoring = false;
             finalScoreText.text = "FINAL SCORE: " + Mathf.RoundToInt(scoreManager.score).ToString();
+
+            if (scoreManager.isZen)
+            {
+                gameModeText.text = "GAME MODE: ZEN";
+                waveTimeText.text = "ELAPSED TIME: " + Mathf.RoundToInt(scoreManager.score).ToString() + " s";
+            } else 
+            {
+                gameModeText.text = "GAME MODE: WAVE";
+                waveTimeText.text = "LAST WAVE: " + enemyManager.currentWaveIdx;
+            }
+            
+
             anim.SetTrigger("GameOver");
         }
     }

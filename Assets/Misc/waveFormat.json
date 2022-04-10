@@ -3,11 +3,7 @@
     [
         {
             "waveWeight": 5,
-            "enemyIdxList": [0]
-        },
-        {
-            "waveWeight": 10,
-            "enemyIdxList": [0,1]
+            "enemyIdxList": [0,1,2,3]
         }
     ]
 }

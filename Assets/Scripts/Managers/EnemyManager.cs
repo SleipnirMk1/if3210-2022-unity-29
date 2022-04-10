@@ -5,7 +5,7 @@ public class EnemyManager : MonoBehaviour{
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
     public bool isZen = true;
-    public int zenUpgradeInterval = 10;
+    public int zenUpgradeInterval = 30;
     public TextAsset enemyWaveText;
     public float waveSpawnInterval = 1f;
     public WeaponUpgradeManager weaponUpgradeManager;
@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour{
 
 
     // RELATED FOR WAVE LEVEL
-    int currentWaveIdx;
+    public int currentWaveIdx;
     int currentEnemyIdx;
     EnemyWaveFormat[] enemyWaveFormat;
     GameObject[] currentEnemyList;

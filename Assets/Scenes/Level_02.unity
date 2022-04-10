@@ -1038,10 +1038,11 @@ MonoBehaviour:
   - {fileID: 447733195}
   isZen: 1
   zenUpgradeInterval: 10
-  enemyWaveText: {fileID: 0}
+  enemyWaveText: {fileID: 4900000, guid: 1f40113c345947c45be681db311c6786, type: 3}
   waveSpawnInterval: 1
   weaponUpgradeManager: {fileID: 293118232}
   scoreManager: {fileID: 124313725}
+  currentWaveIdx: 0
   factory: {fileID: 1424008736}
 --- !u!4 &583335488 stripped
 Transform:
@@ -1413,6 +1414,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2129584430}
     m_Modifications:
+    - target: {fileID: 1261080330298297165, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261080330298297165, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420216346492425259, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420216346492425259, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8420055602682147536, guid: 38dab6fcf4e98374b90a51f4f24a9410,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1523,8 +1544,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 8420055602698347177, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420055602698347177, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578603042127631531, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+        type: 3}
+      propertyPath: m_Name
+      value: WaveTime
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38dab6fcf4e98374b90a51f4f24a9410, type: 3}
+--- !u!114 &852069229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8308615326106468185, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+    type: 3}
+  m_PrefabInstance: {fileID: 852069228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &852069230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8486910610684769699, guid: 38dab6fcf4e98374b90a51f4f24a9410,
+    type: 3}
+  m_PrefabInstance: {fileID: 852069228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &884226319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2636,9 @@ MonoBehaviour:
   finalScoreText: {fileID: 522482380}
   playerHealth: {fileID: 1526226139}
   scoreManager: {fileID: 124313725}
+  enemyManager: {fileID: 541746449}
+  gameModeText: {fileID: 852069229}
+  waveTimeText: {fileID: 852069230}
 --- !u!95 &2129584432
 Animator:
   serializedVersion: 3
