@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour{
     public float waveSpawnInterval = 1f;
     public WeaponUpgradeManager weaponUpgradeManager;
     public ScoreManager scoreManager;
+    public int maxWave = 3;
 
     // Zen Incremental Difficulty;
     public int zenLevel = 1; 

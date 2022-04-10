@@ -1024,6 +1024,10 @@ MonoBehaviour:
   waveSpawnInterval: 1
   weaponUpgradeManager: {fileID: 2145370277}
   scoreManager: {fileID: 124313725}
+  maxWave: 3
+  zenLevel: 1
+  difficultyLevel: 2
+  totalEnemies: 0
   currentWaveIdx: 0
   factory: {fileID: 1424008736}
 --- !u!4 &583335488 stripped
