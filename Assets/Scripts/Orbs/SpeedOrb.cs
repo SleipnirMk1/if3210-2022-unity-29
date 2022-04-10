@@ -8,5 +8,6 @@ public class SpeedOrb : OrbObject {
         base.activateOrb();
         playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerMovement.speed += playerMovement.speed < playerMovement.maxSpeed ? speedBonus : 0;
+        playerMovement.speedText.text = playerMovement.speed.ToString();
     }
 }
