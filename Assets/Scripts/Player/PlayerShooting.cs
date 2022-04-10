@@ -160,7 +160,7 @@ public class PlayerShooting : MonoBehaviour
             //set line end position ke range freom barrel
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
-        Debug.Log(gunLine.GetPosition(1));
+        // Debug.Log(gunLine.GetPosition(1));
     }
 
     public void RefreshGunShotRayList() 

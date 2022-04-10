@@ -62,8 +62,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
  
         //Merubah tampilan dari health slider
-        healthSlider.value = currentHealth;
-        healthText.text = currentHealth.ToString();
+        healthSlider.value = Mathf.Max(0,currentHealth);
+        healthText.text = Mathf.Max(0,currentHealth).ToString();
  
         //Memainkan suara ketika terkena damage
         playerAudio.Play ();

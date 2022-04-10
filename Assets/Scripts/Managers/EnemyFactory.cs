@@ -34,7 +34,7 @@ public class EnemyFactory : MonoBehaviour, IFactory{
             GameObject boss = Instantiate(bossPrefab);
             enemyList.Add(boss);
         }
-
+        
         return enemyList.ToArray();
     }
 }

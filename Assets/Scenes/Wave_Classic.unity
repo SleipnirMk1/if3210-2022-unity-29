@@ -1203,7 +1203,9 @@ MonoBehaviour:
   - {fileID: 3115360648795198604, guid: bd21ccd82a2216047b02a641512ef2af, type: 3}
   - {fileID: 3115360648795198604, guid: 4630f7e30f1088f41b494d866a047739, type: 3}
   - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
-  spawnTime: 3
+  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
+  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
+  spawnTime: 1
 --- !u!4 &717123703
 Transform:
   m_ObjectHideFlags: 0
