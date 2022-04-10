@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45061505, g: 0.498609, b: 0.56437516, a: 1}
+  m_IndirectSpecularColor: {r: 0.45061463, g: 0.4986083, b: 0.5643749, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1185,17 +1185,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1526226139}
-  spawnTime: 1
+  spawnTime: 10
   spawnPoints:
   - {fileID: 75788044}
   - {fileID: 1093196981}
   - {fileID: 447733195}
   isZen: 1
-  zenUpgradeInterval: 10
+  zenUpgradeInterval: 20
   enemyWaveText: {fileID: 4900000, guid: 1f40113c345947c45be681db311c6786, type: 3}
   waveSpawnInterval: 1
   weaponUpgradeManager: {fileID: 7017682}
   scoreManager: {fileID: 124313725}
+  maxWave: 3
+  zenLevel: 1
+  difficultyLevel: 2
+  totalEnemies: 0
   currentWaveIdx: 0
   factory: {fileID: 1424008736}
 --- !u!4 &583335488 stripped
@@ -1482,7 +1486,8 @@ MonoBehaviour:
   - {fileID: 3115360648795198604, guid: bd21ccd82a2216047b02a641512ef2af, type: 3}
   - {fileID: 3115360648795198604, guid: 4630f7e30f1088f41b494d866a047739, type: 3}
   - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
-  spawnTime: 3
+  - {fileID: 2038223636832889867, guid: 39ef6e512e174c847b374c8adcae5363, type: 3}
+  spawnTime: 2.5
 --- !u!1001 &826478852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2325,7 +2330,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 8bb7d7d2d3e161a44908326087f54df0, type: 3}
   - {fileID: 7278421441520560634, guid: a4d3470eb967a3940ab277a460e45400, type: 3}
   - {fileID: 5611789288405819174, guid: 48d719ac353c935439f9df35ddcedf9d, type: 3}
-  enemyWeight: 
+  enemyWeight: 0400000003000000010000000100000001000000
   bossPrefab: {fileID: 153412, guid: 7f23cc574b3ceb24d80921cb0c2d9ddd, type: 3}
 --- !u!4 &1424008737
 Transform:
@@ -2724,6 +2729,7 @@ MonoBehaviour:
   enemyManager: {fileID: 541746449}
   gameModeText: {fileID: 852069229}
   waveTimeText: {fileID: 852069230}
+  maxWave: 12
 --- !u!95 &2129584432
 Animator:
   serializedVersion: 3
