@@ -29,6 +29,10 @@ public class WeaponUpgradeManager : MonoBehaviour
         UpgradeWeapon();
     }
 
+    // public void addMaxHealth(){
+
+    // }
+
     public void UpgradeWeapon()
     {
         Debug.Log("UPGRADE CHOSEN");
