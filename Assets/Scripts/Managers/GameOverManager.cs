@@ -12,6 +12,8 @@ public class GameOverManager : MonoBehaviour
 
     public Text gameModeText;
     public Text waveTimeText;
+
+    public int maxWave = 12;
  
     Animator anim;
 
@@ -31,7 +33,7 @@ public class GameOverManager : MonoBehaviour
  
     void Update()
     {
-        if (playerHealth.currentHealth <= 0)
+        if ((playerHealth.currentHealth <= 0) || (enemyManager.currentWaveIdx == maxWave))
         {
             scoreManager.isScoring = false;
             finalScoreText.text = playerData.getPlayerName() + "\'s FINAL SCORE: " + Mathf.RoundToInt(scoreManager.score).ToString();
