@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Data
+  - HUD
   layers:
   - Default
   - TransparentFX

@@ -14,18 +14,27 @@ public class GameOverManager : MonoBehaviour
     public Text waveTimeText;
  
     Animator anim;
+
+    GameObject playerDataSingleton;
+    PlayerData playerData;
  
     void Awake()
     {
         anim = GetComponent<Animator>();
     }
+
+    void Start()
+    {
+        playerDataSingleton = GameObject.FindGameObjectWithTag("Data");
+        playerData = playerDataSingleton.GetComponent<PlayerData> ();
+    }
  
     void Update()
     {
         if (playerHealth.currentHealth <= 0)
         {
             scoreManager.isScoring = false;
-            finalScoreText.text = "FINAL SCORE: " + Mathf.RoundToInt(scoreManager.score).ToString();
+            finalScoreText.text = playerData.getPlayerName() + "\'s FINAL SCORE: " + Mathf.RoundToInt(scoreManager.score).ToString();
 
             if (scoreManager.isZen)
             {
@@ -37,7 +46,6 @@ public class GameOverManager : MonoBehaviour
                 waveTimeText.text = "LAST WAVE: " + enemyManager.currentWaveIdx;
             }
             
-
             anim.SetTrigger("GameOver");
         }
     }
